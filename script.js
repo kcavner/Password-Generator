@@ -46,15 +46,19 @@ function writePassword() {
     console.log(concatCase)
     
     
-    var rConcatCase = concatCase => {
-      for (let i = concatCase.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        const temp = concatCase[i];
-        concatCase[i] = concatCase[j];
-        concatCase[j] = temp;
-      }
-    }
-    console.log(rConcatCase)
+    
+
+    let shuffled = concatCase
+    .map(value => ({ value, sort: Math.random() }))
+    .sort((a, b) => a.sort - b.sort)
+    .map(({ value }) => value)
+   
+    console.log(shuffled)
+    
+    var completeShuffled = shuffled.join
+
+    console.log()
+    
   }
 }
  
