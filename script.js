@@ -16,30 +16,45 @@ function writePassword() {
   function generatePassword(){
     var characters = window.prompt("choose a length of at least 8 characters and no more than 128 characters for your password.");
     (characterArr.length = characters)
-    const lowercaseConfirm = window.confirm("do you want to include lowercase letters?");
-    const uppercaseConfirm = window.confirm("do you want to include Uppercase letters?");
-    const numbersConfirm = window.confirm("do you want to include numbers?");
-    const specialConfirm = window.confirm("do you want to include special characters?");
+    var lowercaseConfirm = window.confirm("do you want to include lowercase letters?");
+    var uppercaseConfirm = window.confirm("do you want to include Uppercase letters?");
+    var numbersConfirm = window.confirm("do you want to include numbers?");
+    var specialConfirm = window.confirm("do you want to include special characters?");
     
     if(lowercaseConfirm == true){
       console.log("confirmed lowercase")
       var lowercaseConfirmed = lowercase
+    
     }
     if(uppercaseConfirm == true){
       console.log("confirmed uppercase")
       var uppercaseConfirmed = uppercase
+    
     }
     if(numbersConfirm == true){
       console.log("confirmed numbers")
       var numbersConfirmed = numberase
+    
     }
     if(specialConfirm == true){
       console.log("confirmed characters")
       var specialConfirmed = specialCharacter
-      console.log(specialConfirmed)
+      
     }
-
-  
+    
+    var concatCase = lowercaseConfirmed.concat(uppercaseConfirmed,numbersConfirmed,specialConfirmed)
+    console.log(concatCase)
+    
+    
+    var rConcatCase = concatCase => {
+      for (let i = concatCase.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        const temp = concatCase[i];
+        concatCase[i] = concatCase[j];
+        concatCase[j] = temp;
+      }
+    }
+    console.log(rConcatCase)
   }
 }
  
