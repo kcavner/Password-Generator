@@ -1,7 +1,7 @@
-  var lowercase = ["a","b","c","d","e","f","g","h","i","j"]
-  var uppercase = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J']
-  var numberase = ["1","2","3","4","5","6","7","8","9"]
-  var specialCharacter = ["!","@","#","$","%","^","&","*"]
+  var lowercase = ["a","b","c","d","e","f","g","h","i","j","b","c","d","e","f","g","h","i","j","c","d","e","f","g","h","i","j","f","g","h","i","j"]
+  var uppercase = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'F', 'G', 'H', 'I', 'J', 'H', 'I', 'J']
+  var numberCase = ["1","2","3","4","5","6","7","8","9","2","3","4","5","6","7","8","9","2","3","4","5","6","7","8","9","2","3","4","5","6","7","8","9","2","3","2","3"]
+  var specialCharacter = ["!","@","#","$","%","^","&","*","@","#","$","%","^","&","*","@","#","$","%","^","&","*","@","#","$","%","^","&","*","@","#","$","%","@",]
   var characterArr = []
 
   // Assignment Code
@@ -15,29 +15,34 @@ function writePassword() {
   passwordText.value = password;
   function generatePassword(){
     var characters = window.prompt("choose a length of at least 8 characters and no more than 128 characters for your password.");
-    (characterArr.length = characters)
+    // (characterArr.length = characters)
+    console.log(typeof characters)
     var lowercaseConfirm = window.confirm("do you want to include lowercase letters?");
+    window.alert("confirmed lowercase")
     var uppercaseConfirm = window.confirm("do you want to include Uppercase letters?");
+    window.alert("confirmed uppercase")
     var numbersConfirm = window.confirm("do you want to include numbers?");
+    window.alert("confirmed numbers")
     var specialConfirm = window.confirm("do you want to include special characters?");
+    window.alert("confirmed special characters")
     
     if(lowercaseConfirm == true){
-      console.log("confirmed lowercase")
+      
       var lowercaseConfirmed = lowercase
     
     }
     if(uppercaseConfirm == true){
-      console.log("confirmed uppercase")
+      
       var uppercaseConfirmed = uppercase
     
     }
     if(numbersConfirm == true){
-      console.log("confirmed numbers")
-      var numbersConfirmed = numberase
+      
+      var numbersConfirmed = numberCase
     
     }
     if(specialConfirm == true){
-      console.log("confirmed characters")
+      
       var specialConfirmed = specialCharacter
       
     }
@@ -45,19 +50,21 @@ function writePassword() {
     var concatCase = lowercaseConfirmed.concat(uppercaseConfirmed,numbersConfirmed,specialConfirmed)
     console.log(concatCase)
     
-    
-    
-
     let shuffled = concatCase
     .map(value => ({ value, sort: Math.random() }))
     .sort((a, b) => a.sort - b.sort)
     .map(({ value }) => value)
    
     console.log(shuffled)
-    
-    var completeShuffled = shuffled.join
+    shuffled.length = +characters
+    console.log(shuffled)
+    var completeShuffled = shuffled.join("")
 
-    console.log()
+    console.log(completeShuffled)
+    return completeShuffled
+    
+    // c
+    // var shortenedCompleteShuffled = completeShuffled.
     
   }
 }
