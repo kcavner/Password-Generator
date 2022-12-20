@@ -24,8 +24,9 @@ function writePassword() {
     }else if (parsedCharacters<8 || parsedCharacters>128){
     window.confirm("please enter an integer between 8 and 128")
     return;
-    }else{ (characterArr.length = parsedCharacters)}
-   
+    }else{
+       (characterArr.length = parsedCharacters)
+    }
    
     
     var lowercaseConfirm = window.confirm("do you want to include lowercase letters?");
@@ -35,6 +36,7 @@ function writePassword() {
     }else{
       window.alert("no lowercase... ok then")
     }
+
     var uppercaseConfirm = window.confirm("do you want to include Uppercase letters?");
     if(uppercaseConfirm == true){
       var uppercaseConfirmed = uppercase
@@ -42,6 +44,7 @@ function writePassword() {
     }else{
       window.alert("no uppercase... excelent taste")
     }
+
     var numbersConfirm = window.confirm("do you want to include numbers?");
     if(numbersConfirm == true){
       var numbersConfirmed = numberCase
@@ -49,6 +52,7 @@ function writePassword() {
     }else{
       window.alert("no numbers... who needs 'em?")
     }
+
     var specialConfirm = window.confirm("do you want to include special characters?");
     if(specialConfirm == true){
       var specialConfirmed = specialCharacter
@@ -57,20 +61,13 @@ function writePassword() {
       window.alert("no special characters... they're not that special anyways.")
     }
     
-   
-    
-    
-    
-    
     var concatCase = lowercaseConfirmed.concat(uppercaseConfirmed,numbersConfirmed,specialConfirmed)
-    
     
     let shuffled = concatCase
     .map(value => ({ value, sort: Math.random() }))
     .sort((a, b) => a.sort - b.sort)
     .map(({ value }) => value)
    
-    
     shuffled.length = +characters
     
     var completeShuffled = shuffled.join("")
