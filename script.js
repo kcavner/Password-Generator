@@ -1,3 +1,4 @@
+//  initial variables include library 
   var lowercase = ["a","b","c","d","e","f","g","h","i","j","b","c","d","e","f","g","h","i","j","c","d","e","f","g","h","i","j","f","g","h","i","j"]
   var uppercase = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'F', 'G', 'H', 'I', 'J', 'H', 'I', 'J']
   var numberCase = ["1","2","3","4","5","6","7","8","9","2","3","4","5","6","7","8","9","2","3","4","5","6","7","8","9","2","3","4","5","6","7","8","9","2","3","2","3"]
@@ -13,11 +14,14 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
   passwordText.value = password;
   
+  // generate password returns completed password
   function generatePassword(){
+    
+    // character length is converted from a string to an integer and is set to parsedCharacters variable
     var characters = window.prompt("choose a length of at least 8 characters and no more than 128 characters for your password.");
     var parsedCharacters = parseInt(characters)
    
-   
+    //  if user entered letters or doesnt fit character length criteria they are asked to, if criteria is met, length is set to initial array characterArr
    if(Number.isNaN(parsedCharacters)){
       window.confirm("please enter an integer between 8 and 128");
       return;
@@ -28,7 +32,7 @@ function writePassword() {
        (characterArr.length = parsedCharacters)
     }
    
-    
+    // checks if criteria is true and if so, initial criteria arrays are set to a confirmed variable
     var lowercaseConfirm = window.confirm("do you want to include lowercase letters?");
     if(lowercaseConfirm == true){
       var lowercaseConfirmed = lowercase
@@ -61,18 +65,28 @@ function writePassword() {
       window.alert("no special characters... they're not that special anyways.")
     }
     
+    // checks if no criteria was selected and if so; returns function.
+    if (uppercaseConfirm,specialConfirm,numbersConfirm,lowercaseConfirm == false){
+      window.confirm("please select criteria")
+    return;
+    }
+
+    // confirmed variables are combined
     var concatCase = lowercaseConfirmed.concat(uppercaseConfirmed,numbersConfirmed,specialConfirmed)
     
+    // elements in combined array 'concatcase' are shuffled
     let shuffled = concatCase
     .map(value => ({ value, sort: Math.random() }))
     .sort((a, b) => a.sort - b.sort)
     .map(({ value }) => value)
    
+    // shuffled array is set to length of user defined character length
     shuffled.length = +characters
     
+    // array elements are combined
     var completeShuffled = shuffled.join("")
 
-    
+    // completeShuffled returns generated password
     return completeShuffled
     
     
@@ -80,24 +94,6 @@ function writePassword() {
   }
 }
  
-
-  
-
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
-// GIVEN I need a new, secure password
-// WHEN I click the button to generate a password
-// THEN I am presented with a series of prompts for password criteria
-// WHEN prompted for password criteria
-// THEN I select which criteria to include in the password
-// WHEN prompted for the length of the password
-// THEN I choose a length of at least 8 characters and no more than 128 characters
-// WHEN asked for character types to include in the password
-// THEN I confirm whether or not to include lowercase, uppercase, numeric, and/or special characters
-// WHEN I answer each prompt
-// THEN my input should be validated and at least one character type should be selected
-// WHEN all prompts are answered
-// THEN a password is generated that matches the selected criteria
-// WHEN the password is generated
-// THEN the password is either displayed in an alert or written to the page
