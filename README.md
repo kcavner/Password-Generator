@@ -15,7 +15,7 @@
 - I learned how to dynamically manipulate data based on user criteria provided by a series of prompts. The biggest 'aha!' moment i had was setting confirmed criteria prompts  to a new variable that was equal to all confirmed criteria arrays. If an array wasn't confirmed, there was no variable made thus not being included in the confirmed pool. I ran into many problems. The biggest problem i had was how to get the characters to equal the ammount needed. I found that looping through an array of combined user defined criteria grabbing random elements from it and pushing them to a new aray with the user defined length solved that problem.
 
 ## Deployment Link
-https://kcavner.github.io/wk-2-challenge---Portfolio/
+https://kcavner.github.io/Password-Generator/
 
 ## License
 
